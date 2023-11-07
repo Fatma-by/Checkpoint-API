@@ -24,6 +24,9 @@ const fetchUsersSuccess = (users) => {
   };
 };
 
+
+
+
 const fetchUsersFailure = (error) => {
   return {
     type: FETCH_USERS_FAILURE,
@@ -36,7 +39,10 @@ export const fetchUser = () => {
     axios
       .get("https://jsonplaceholder.typicode.com/users/")
       .then((response) => {
+        console.log(response);
         const user = response.data;
+        console.log(user,"action");
+
         dispatch(fetchUsersSuccess(user));
 
         console.log(user);
@@ -46,5 +52,4 @@ export const fetchUser = () => {
         console.log(error.message);
       });
   };
-  console.log(fetchUser);
 };
