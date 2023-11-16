@@ -9,7 +9,6 @@ const initialState = {
   error: "",
 };
 
-console.log(initialState);
 
 const fetchUsersRequest = () => {
   return {
@@ -39,13 +38,10 @@ export const fetchUser = () => {
     axios
       .get("https://jsonplaceholder.typicode.com/users/")
       .then((response) => {
-        console.log(response);
         const user = response.data;
-        console.log(user,"action");
 
         dispatch(fetchUsersSuccess(user));
 
-        console.log(user);
       })
       .catch((error) => {
         dispatch(fetchUsersFailure(error.message));
